@@ -64,7 +64,6 @@
 		2A85DBF42ABE1BCB0058F1BF /* pesquiseCEP */ = {
 			isa = PBXGroup;
 			children = (
-				2ABC58DB2AC1C19800F89D63 /* Alert */,
 				2A85DC112ABE22F60058F1BF /* Service */,
 				2A85DC0C2ABE1FEF0058F1BF /* SearchCEP */,
 				2A85DC092ABE1C510058F1BF /* Home */,
@@ -102,13 +101,6 @@
 				2A85DC142ABE23720058F1BF /* CepAPI.swift */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		2ABC58DB2AC1C19800F89D63 /* Alert */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Alert;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -15,6 +15,7 @@ class HomeVC: UIViewController {
         dismissKeyboard()
         configNavigationBar()
         self.homeScreen?.delegate = self
+        homeScreen?.cepTextField.delegate = self
     }
     
     func dismissKeyboard() {
@@ -29,20 +30,52 @@ class HomeVC: UIViewController {
 
 extension HomeVC: HomeScreenProtocol {
     func actionButton() {
-        
+                        
+        if homeScreen?.cepTextField.text == "" {
+            let alert = UIAlertController(title: nil, message: "Digite um CEP", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: .cancel))
+            present(alert, animated: true)
+        }
+
         if let cep = homeScreen?.cepTextField.text, !cep.isEmpty {
             CepAPI.shared.getCep(for: cep) { result in
                 switch result {
                 case .success(let cepData):
                     DispatchQueue.main.async {
                         let vc = SearchCepVC(cepData: cepData)
-                        //self.present(vc, animated: true)
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 case .failure(_):
-                    print("Error")
+                   print("error")
                 }
             }
         }
+    }
+}
+
+extension HomeVC: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        // Obtém o texto atual do UITextField
+        if let currentText = textField.text as NSString? {
+            let updatedText = currentText.replacingCharacters(in: range, with: string)
+
+            // Remove todos os caracteres não numéricos
+            let cleanText = updatedText.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()
+
+            // Verifica se o texto possui mais de 5 dígitos
+            if cleanText.count > 5 {
+                // Insere um traço após o quinto dígito
+                let formattedText = String(cleanText.prefix(5)) + "-" + String(cleanText.dropFirst(5))
+
+                // Atualiza o texto do UITextField com a formatação
+                textField.text = formattedText
+
+                // Retorna falso para impedir a inserção automática do texto
+                return false
+            }
+        }
+
+        // Permite que a inserção de texto continue
+        return true
     }
 }
