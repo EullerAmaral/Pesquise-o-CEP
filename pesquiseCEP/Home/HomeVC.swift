@@ -12,7 +12,18 @@ class HomeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        dismissKeyboard()
+        configNavigationBar()
         self.homeScreen?.delegate = self
+    }
+    
+    func dismissKeyboard() {
+        let tapGesture = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    func configNavigationBar() {
+        self.navigationController?.isNavigationBarHidden = true
     }
 }
 
@@ -25,6 +36,7 @@ extension HomeVC: HomeScreenProtocol {
                 case .success(let cepData):
                     DispatchQueue.main.async {
                         let vc = SearchCepVC(cepData: cepData)
+                        //self.present(vc, animated: true)
                         self.navigationController?.pushViewController(vc, animated: true)
                     }
                 case .failure(_):

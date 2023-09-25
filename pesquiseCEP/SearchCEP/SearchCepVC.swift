@@ -23,9 +23,12 @@ class SearchCepVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchCepScreen?.displayCep(cepData)
-        
+        searchCepScreen?.delegate = self
     }
-    
+}
 
-
+extension SearchCepVC: SearchCepScreenProtocol {
+    func tappedButton() {
+        let vc = HomeVC()
+        self.navigationController?.pushViewController(vc, animated: true)    }
 }

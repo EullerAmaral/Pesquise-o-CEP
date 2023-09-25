@@ -1,7 +1,17 @@
 import UIKit
 
+protocol SearchCepScreenProtocol: AnyObject {
+    func tappedButton()
+}
+
 class SearchCepScreen: UIView {
 
+    var delegate: SearchCepScreenProtocol?
+    
+    func configBackground() {
+        backgroundColor = .white
+    }
+    
     lazy var cepLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -42,6 +52,32 @@ class SearchCepScreen: UIView {
         return label
     }()
     
+    lazy var mapImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "maplogo")
+        image.contentMode = .scaleAspectFit
+        return image
+    }()
+    
+    lazy var novaPesquisaButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Nova pesquisa", for: .normal)
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.backgroundColor = .systemRed
+        button.clipsToBounds = true
+        button.layer.borderWidth = 1.0
+        button.layer.cornerRadius = 5
+        button.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        return button
+    }()
+    
+    @objc func tappedButton() {
+        self.delegate?.tappedButton()
+    }
+    
     func displayCep(_ cepData: CepModel) {
         cepLabel.text = "CEP: \(cepData.cep)"
         logradouroLabel.text = "Logradouro: \(cepData.logradouro)"
@@ -54,6 +90,8 @@ class SearchCepScreen: UIView {
         addSubview(logradouroLabel)
         addSubview(localidadeLabel)
         addSubview(estadoLabel)
+        addSubview(mapImage)
+        addSubview(novaPesquisaButton)
     }
     
     private func setupConstraints() {
@@ -64,7 +102,7 @@ class SearchCepScreen: UIView {
             
             logradouroLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
             logradouroLabel.topAnchor.constraint(equalTo: cepLabel.bottomAnchor, constant: 20),
-            logradouroLabel.widthAnchor.constraint(equalToConstant: 180),
+            logradouroLabel.widthAnchor.constraint(equalToConstant: 230),
             
             localidadeLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
             localidadeLabel.topAnchor.constraint(equalTo: logradouroLabel.bottomAnchor, constant: 20),
@@ -74,12 +112,21 @@ class SearchCepScreen: UIView {
             estadoLabel.topAnchor.constraint(equalTo: localidadeLabel.bottomAnchor, constant: 20),
             estadoLabel.widthAnchor.constraint(equalToConstant: 180),
             
+            mapImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            mapImage.topAnchor.constraint(equalTo: estadoLabel.bottomAnchor, constant: 150),
+            mapImage.heightAnchor.constraint(equalToConstant: 250),
+            mapImage.widthAnchor.constraint(equalToConstant: 250),
+            
+            novaPesquisaButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            novaPesquisaButton.topAnchor.constraint(equalTo: mapImage.bottomAnchor, constant: 15),
+            novaPesquisaButton.heightAnchor.constraint(equalToConstant: 45),
+            novaPesquisaButton.widthAnchor.constraint(equalToConstant: 130)
         ])
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .systemBlue .withAlphaComponent(1.9)
+        configBackground()
         addElements()
         setupConstraints()
     }
@@ -87,5 +134,4 @@ class SearchCepScreen: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

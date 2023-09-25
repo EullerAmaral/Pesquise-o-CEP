@@ -8,18 +8,16 @@ class HomeScreen: UIView {
     
     var delegate: HomeScreenProtocol?
     
-    
     func configBackground() {
-        backgroundColor = .systemYellow
+        backgroundColor = .systemGray5
     }
     
-    lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Pesquise o CEP"
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        return label
+    lazy var cepImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "ceplogo")
+        image.contentMode = .scaleAspectFit
+        return image
     }()
     
     lazy var cepTextField: UITextField = {
@@ -28,7 +26,7 @@ class HomeScreen: UIView {
         textField.textColor = .gray
         textField.placeholder = "Digite o CEP"
         textField.autocorrectionType = .no
-        textField.keyboardType = .default
+        textField.keyboardType = .numberPad
         textField.backgroundColor = .white
         textField.clipsToBounds = true
         textField.layer.cornerRadius = 5
@@ -41,8 +39,9 @@ class HomeScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Pesquisar CEP", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
-        button.backgroundColor = .white
+        button.setTitleColor(UIColor.white, for: .normal)
+        button.titleLabel?.font = .boldSystemFont(ofSize: 17)
+        button.backgroundColor = .systemRed
         button.clipsToBounds = true
         button.layer.borderWidth = 1.0
         button.layer.cornerRadius = 5
@@ -52,19 +51,21 @@ class HomeScreen: UIView {
     
     @objc func tappedButton() {
         self.delegate?.actionButton()
-        print(#function)
     }
     
     func addElements() {
-        addSubview(titleLabel)
+        addSubview(cepImage)
         addSubview(cepTextField)
         addSubview(searchButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            titleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 5),
+            
+            cepImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            cepImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
+            cepImage.heightAnchor.constraint(equalToConstant: 250),
+            cepImage.widthAnchor.constraint(equalToConstant: 250),
             
             cepTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
             cepTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 430),

@@ -33,7 +33,6 @@ class CepAPI: UIViewController {
                     let json = try JSONDecoder().decode(CepModel.self, from: data)
                     DispatchQueue.main.async {
                         completion(.success(json))
-                        //print(json)
                     }
                     
                 } catch {
