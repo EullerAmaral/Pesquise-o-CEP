@@ -15,7 +15,6 @@ class SearchCepScreen: UIView {
     lazy var cepLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Text"
         label.textColor = .black
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 19)
@@ -25,7 +24,6 @@ class SearchCepScreen: UIView {
     lazy var logradouroLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Text"
         label.textColor = .black
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 19)
@@ -35,7 +33,6 @@ class SearchCepScreen: UIView {
     lazy var bairroLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Text"
         label.textColor = .black
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 19)
@@ -45,7 +42,6 @@ class SearchCepScreen: UIView {
     lazy var cidadeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Text"
         label.textColor = .black
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 19)
@@ -55,7 +51,6 @@ class SearchCepScreen: UIView {
     lazy var estadoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Text"
         label.textColor = .black
         label.numberOfLines = 0
         label.font = UIFont.boldSystemFont(ofSize: 19)

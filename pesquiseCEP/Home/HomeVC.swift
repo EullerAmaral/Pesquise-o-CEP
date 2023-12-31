@@ -38,18 +38,24 @@ extension HomeVC: HomeScreenProtocol {
         }
 
         if let cep = homeScreen?.cepTextField.text, !cep.isEmpty {
-            CepAPI.shared.getCep(for: cep) { result in
+            CepAPI.shared.getCep(for: cep) { [weak self] result in
                 switch result {
                 case .success(let cepData):
                     DispatchQueue.main.async {
                         let vc = SearchCepVC(cepData: cepData)
-                        self.navigationController?.pushViewController(vc, animated: true)
+                        self?.navigationController?.pushViewController(vc, animated: true)
                     }
-                case .failure(_):
-                   print("error")
+                    
+                case .failure(_): break
                 }
             }
         }
+    }
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: "Erro", message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 

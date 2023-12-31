@@ -30,5 +30,6 @@ class SearchCepVC: UIViewController {
 extension SearchCepVC: SearchCepScreenProtocol {
     func tappedButton() {
         let vc = HomeVC()
-        self.navigationController?.pushViewController(vc, animated: true)    }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

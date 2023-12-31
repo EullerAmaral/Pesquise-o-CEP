@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A40E3F92B419945001E86D5 /* CepError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A40E3F82B419945001E86D5 /* CepError.swift */; };
 		2A85DBF62ABE1BCB0058F1BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DBF52ABE1BCB0058F1BF /* AppDelegate.swift */; };
 		2A85DBF82ABE1BCB0058F1BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DBF72ABE1BCB0058F1BF /* SceneDelegate.swift */; };
 		2A85DBFA2ABE1BCB0058F1BF /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DBF92ABE1BCB0058F1BF /* HomeVC.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A40E3F82B419945001E86D5 /* CepError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepError.swift; sourceTree = "<group>"; };
 		2A85DBF22ABE1BCB0058F1BF /* pesquiseCEP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pesquiseCEP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A85DBF52ABE1BCB0058F1BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A85DBF72ABE1BCB0058F1BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,8 +99,9 @@
 		2A85DC112ABE22F60058F1BF /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2A85DC122ABE23250058F1BF /* CepModel.swift */,
 				2A85DC142ABE23720058F1BF /* CepAPI.swift */,
+				2A85DC122ABE23250058F1BF /* CepModel.swift */,
+				2A40E3F82B419945001E86D5 /* CepError.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				2A85DC102ABE220D0058F1BF /* SearchCepScreen.swift in Sources */,
 				2A85DBFA2ABE1BCB0058F1BF /* HomeVC.swift in Sources */,
 				2A85DBF62ABE1BCB0058F1BF /* AppDelegate.swift in Sources */,
+				2A40E3F92B419945001E86D5 /* CepError.swift in Sources */,
 				2A85DBF82ABE1BCB0058F1BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

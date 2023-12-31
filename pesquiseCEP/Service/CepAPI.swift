@@ -6,11 +6,12 @@ class CepAPI: UIViewController {
     
     var cepModel: CepModel?
     
-    func getCep(for cep: String, completion: @escaping(Result<CepModel, Error>) -> Void) {
+    func getCep(for cep: String, completion: @escaping(Result<CepModel, CepError>) -> Void) {
         
         let endPoint: String = "https://viacep.com.br/ws/\(cep)/json/"
         
         guard let url: URL = URL(string: endPoint) else {
+            completion(.failure(CepError.invalidURL(url: endPoint)))
             return
         }
         
@@ -36,7 +37,10 @@ class CepAPI: UIViewController {
                     }
                     
                 } catch {
+                    completion(.failure(CepError.decodingError))
+                    print(CepError.decodingError)
                     print(error.localizedDescription)
+                    print("Esse aqui \(response.statusCode)")
                 }
             }
         }
