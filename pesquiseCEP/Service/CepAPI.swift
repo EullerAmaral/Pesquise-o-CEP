@@ -1,9 +1,7 @@
 import UIKit
 
 class CepAPI: UIViewController {
-    
-    // teste
-        
+            
     static let shared = CepAPI()
     
     var cepModel: CepModel?
