@@ -4,15 +4,15 @@ protocol SearchCepScreenProtocol: AnyObject {
     func tappedButton()
 }
 
-class SearchCepScreen: UIView {
+internal class SearchCepScreen: UIView {
 
     var delegate: SearchCepScreenProtocol?
     
-    func configBackground() {
+    private func configBackground() {
         backgroundColor = .white
     }
     
-    lazy var cepLabel: UILabel = {
+    private lazy var cepLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -30,7 +30,7 @@ class SearchCepScreen: UIView {
         return label
     }()
     
-    lazy var bairroLabel: UILabel = {
+    private lazy var bairroLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -39,7 +39,7 @@ class SearchCepScreen: UIView {
         return label
     }()
     
-    lazy var cidadeLabel: UILabel = {
+    private lazy var cidadeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -48,7 +48,7 @@ class SearchCepScreen: UIView {
         return label
     }()
     
-    lazy var estadoLabel: UILabel = {
+    private lazy var estadoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -57,7 +57,7 @@ class SearchCepScreen: UIView {
         return label
     }()
     
-    lazy var mapImage: UIImageView = {
+    private lazy var mapImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "maplogo")
@@ -65,7 +65,7 @@ class SearchCepScreen: UIView {
         return image
     }()
     
-    lazy var novaPesquisaButton: UIButton = {
+    private lazy var novaPesquisaButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Nova pesquisa", for: .normal)
@@ -79,11 +79,11 @@ class SearchCepScreen: UIView {
         return button
     }()
     
-    @objc func tappedButton() {
+    @objc private func tappedButton() {
         self.delegate?.tappedButton()
     }
     
-    func displayCep(_ cepData: CepModel) {
+    internal func displayCep(_ cepData: CepModel) {
         cepLabel.text = "CEP: \(cepData.cep)"
         logradouroLabel.text = "Logradouro: \(cepData.logradouro)"
         bairroLabel.text = "Bairro: \(cepData.bairro)"
@@ -91,7 +91,7 @@ class SearchCepScreen: UIView {
         estadoLabel.text = "Estado: \(cepData.estado)"
     }
     
-    func addElements() {
+    private func addElements() {
         addSubview(cepLabel)
         addSubview(logradouroLabel)
         addSubview(bairroLabel)
