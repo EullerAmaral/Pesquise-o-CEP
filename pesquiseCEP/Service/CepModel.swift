@@ -1,17 +1,17 @@
 import Foundation
 
 struct CepModel: Codable {
-    let cep: String
-    let logradouro: String
-    let bairro: String
-    let cidade: String
-    let estado: String
+    let zipCode: String
+    let streetOrAvenue: String
+    let neighborhood: String
+    let city: String
+    let state: String
     
     enum CodingKeys: String, CodingKey {
-        case cep
-        case logradouro
-        case bairro
-        case cidade = "localidade"
-        case estado = "uf"
+        case zipCode = "cep"
+        case streetOrAvenue = "logradouro"
+        case neighborhood = "bairro"
+        case city = "localidade"
+        case state = "uf"
     }
 }

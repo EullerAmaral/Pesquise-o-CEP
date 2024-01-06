@@ -12,7 +12,7 @@ class HomeScreen: UIView {
         backgroundColor = .systemGray5
     }
     
-    lazy var cepImage: UIImageView = {
+    lazy var zipCodeImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.image = UIImage(named: "ceplogo")
@@ -20,7 +20,7 @@ class HomeScreen: UIView {
         return image
     }()
     
-    lazy var cepTextField: UITextField = {
+    lazy var zipCodeTextField: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textColor = .gray
@@ -54,26 +54,26 @@ class HomeScreen: UIView {
     }
     
     func addElements() {
-        addSubview(cepImage)
-        addSubview(cepTextField)
+        addSubview(zipCodeImage)
+        addSubview(zipCodeTextField)
         addSubview(searchButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             
-            cepImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            cepImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
-            cepImage.heightAnchor.constraint(equalToConstant: 250),
-            cepImage.widthAnchor.constraint(equalToConstant: 250),
+            zipCodeImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            zipCodeImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 100),
+            zipCodeImage.heightAnchor.constraint(equalToConstant: 250),
+            zipCodeImage.widthAnchor.constraint(equalToConstant: 250),
             
-            cepTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
-            cepTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 430),
-            cepTextField.heightAnchor.constraint(equalToConstant: 35),
-            cepTextField.widthAnchor.constraint(equalToConstant: 230),
+            zipCodeTextField.centerXAnchor.constraint(equalTo: centerXAnchor),
+            zipCodeTextField.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 430),
+            zipCodeTextField.heightAnchor.constraint(equalToConstant: 35),
+            zipCodeTextField.widthAnchor.constraint(equalToConstant: 230),
             
             searchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            searchButton.topAnchor.constraint(equalTo: cepTextField.bottomAnchor, constant: 15),
+            searchButton.topAnchor.constraint(equalTo: zipCodeTextField.bottomAnchor, constant: 15),
             searchButton.heightAnchor.constraint(equalToConstant: 45),
             searchButton.widthAnchor.constraint(equalToConstant: 130)
         ])

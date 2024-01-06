@@ -84,11 +84,11 @@ internal class SearchCepScreen: UIView {
     }
     
     internal func displayCep(_ cepData: CepModel) {
-        zipCodeLabel.text = "CEP: \(cepData.cep)"
-        streetOrAvenueLabel.text = "Logradouro: \(cepData.logradouro)"
-        neighborhoodLabel.text = "Bairro: \(cepData.bairro)"
-        cityLabel.text = "Cidade: \(cepData.cidade)"
-        stateLabel.text = "Estado: \(cepData.estado)"
+        zipCodeLabel.text = "CEP: \(cepData.zipCode)"
+        streetOrAvenueLabel.text = "Logradouro: \(cepData.streetOrAvenue)"
+        neighborhoodLabel.text = "Bairro: \(cepData.neighborhood)"
+        cityLabel.text = "Cidade: \(cepData.city)"
+        stateLabel.text = "Estado: \(cepData.state)"
     }
     
     private func addElements() {
