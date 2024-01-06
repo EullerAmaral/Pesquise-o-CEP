@@ -12,7 +12,7 @@ internal class SearchCepScreen: UIView {
         backgroundColor = .white
     }
     
-    private lazy var cepLabel: UILabel = {
+    private lazy var zipCodeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -21,7 +21,7 @@ internal class SearchCepScreen: UIView {
         return label
     }()
     
-    lazy var logradouroLabel: UILabel = {
+    lazy var streetOrAvenueLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -30,7 +30,7 @@ internal class SearchCepScreen: UIView {
         return label
     }()
     
-    private lazy var bairroLabel: UILabel = {
+    private lazy var neighborhoodLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -39,7 +39,7 @@ internal class SearchCepScreen: UIView {
         return label
     }()
     
-    private lazy var cidadeLabel: UILabel = {
+    private lazy var cityLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -48,7 +48,7 @@ internal class SearchCepScreen: UIView {
         return label
     }()
     
-    private lazy var estadoLabel: UILabel = {
+    private lazy var stateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -65,7 +65,7 @@ internal class SearchCepScreen: UIView {
         return image
     }()
     
-    private lazy var novaPesquisaButton: UIButton = {
+    private lazy var newSearchButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Nova pesquisa", for: .normal)
@@ -84,54 +84,54 @@ internal class SearchCepScreen: UIView {
     }
     
     internal func displayCep(_ cepData: CepModel) {
-        cepLabel.text = "CEP: \(cepData.cep)"
-        logradouroLabel.text = "Logradouro: \(cepData.logradouro)"
-        bairroLabel.text = "Bairro: \(cepData.bairro)"
-        cidadeLabel.text = "Cidade: \(cepData.cidade)"
-        estadoLabel.text = "Estado: \(cepData.estado)"
+        zipCodeLabel.text = "CEP: \(cepData.cep)"
+        streetOrAvenueLabel.text = "Logradouro: \(cepData.logradouro)"
+        neighborhoodLabel.text = "Bairro: \(cepData.bairro)"
+        cityLabel.text = "Cidade: \(cepData.cidade)"
+        stateLabel.text = "Estado: \(cepData.estado)"
     }
     
     private func addElements() {
-        addSubview(cepLabel)
-        addSubview(logradouroLabel)
-        addSubview(bairroLabel)
-        addSubview(cidadeLabel)
-        addSubview(estadoLabel)
+        addSubview(zipCodeLabel)
+        addSubview(streetOrAvenueLabel)
+        addSubview(neighborhoodLabel)
+        addSubview(cityLabel)
+        addSubview(stateLabel)
         addSubview(mapImage)
-        addSubview(novaPesquisaButton)
+        addSubview(newSearchButton)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            cepLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            cepLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
-            cepLabel.widthAnchor.constraint(equalToConstant: 180),
+            zipCodeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            zipCodeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),
+            zipCodeLabel.widthAnchor.constraint(equalToConstant: 180),
             
-            logradouroLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
-            logradouroLabel.topAnchor.constraint(equalTo: cepLabel.bottomAnchor, constant: 20),
-            logradouroLabel.widthAnchor.constraint(equalToConstant: 280),
+            streetOrAvenueLabel.leadingAnchor.constraint(equalTo: zipCodeLabel.leadingAnchor),
+            streetOrAvenueLabel.topAnchor.constraint(equalTo: zipCodeLabel.bottomAnchor, constant: 20),
+            streetOrAvenueLabel.widthAnchor.constraint(equalToConstant: 280),
             
-            bairroLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
-            bairroLabel.topAnchor.constraint(equalTo: logradouroLabel.bottomAnchor, constant: 20),
-            bairroLabel.widthAnchor.constraint(equalToConstant: 280),
+            neighborhoodLabel.leadingAnchor.constraint(equalTo: zipCodeLabel.leadingAnchor),
+            neighborhoodLabel.topAnchor.constraint(equalTo: streetOrAvenueLabel.bottomAnchor, constant: 20),
+            neighborhoodLabel.widthAnchor.constraint(equalToConstant: 280),
             
-            cidadeLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
-            cidadeLabel.topAnchor.constraint(equalTo: bairroLabel.bottomAnchor, constant: 20),
-            cidadeLabel.widthAnchor.constraint(equalToConstant: 180),
+            cityLabel.leadingAnchor.constraint(equalTo: zipCodeLabel.leadingAnchor),
+            cityLabel.topAnchor.constraint(equalTo: neighborhoodLabel.bottomAnchor, constant: 20),
+            cityLabel.widthAnchor.constraint(equalToConstant: 180),
             
-            estadoLabel.leadingAnchor.constraint(equalTo: cepLabel.leadingAnchor),
-            estadoLabel.topAnchor.constraint(equalTo: cidadeLabel.bottomAnchor, constant: 20),
-            estadoLabel.widthAnchor.constraint(equalToConstant: 180),
+            stateLabel.leadingAnchor.constraint(equalTo: zipCodeLabel.leadingAnchor),
+            stateLabel.topAnchor.constraint(equalTo: cityLabel.bottomAnchor, constant: 20),
+            stateLabel.widthAnchor.constraint(equalToConstant: 180),
             
             mapImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            mapImage.topAnchor.constraint(equalTo: estadoLabel.bottomAnchor, constant: 110),
+            mapImage.topAnchor.constraint(equalTo: stateLabel.bottomAnchor, constant: 110),
             mapImage.heightAnchor.constraint(equalToConstant: 250),
             mapImage.widthAnchor.constraint(equalToConstant: 250),
             
-            novaPesquisaButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            novaPesquisaButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15),
-            novaPesquisaButton.heightAnchor.constraint(equalToConstant: 45),
-            novaPesquisaButton.widthAnchor.constraint(equalToConstant: 130)
+            newSearchButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            newSearchButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15),
+            newSearchButton.heightAnchor.constraint(equalToConstant: 45),
+            newSearchButton.widthAnchor.constraint(equalToConstant: 130)
         ])
     }
     
