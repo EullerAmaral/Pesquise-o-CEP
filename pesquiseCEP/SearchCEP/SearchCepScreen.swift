@@ -83,7 +83,7 @@ internal class SearchCepScreen: UIView {
         self.delegate?.tappedButton()
     }
     
-    internal func displayCep(_ cepData: CepModel) {
+    internal func displayCep(_ cepData: ZipCodeModel) {
         zipCodeLabel.text = "CEP: \(cepData.zipCode)"
         streetOrAvenueLabel.text = "Logradouro: \(cepData.streetOrAvenue)"
         neighborhoodLabel.text = "Bairro: \(cepData.neighborhood)"

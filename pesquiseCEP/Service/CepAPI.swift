@@ -4,9 +4,9 @@ class CepAPI: UIViewController {
             
     static let shared = CepAPI()
     
-    var cepModel: CepModel?
+    var cepModel: ZipCodeModel?
     
-    func getCep(for cep: String, completion: @escaping(Result<CepModel, CepError>) -> Void) {
+    func getCep(for cep: String, completion: @escaping(Result<ZipCodeModel, CepError>) -> Void) {
         
         let endPoint: String = "https://viacep.com.br/ws/\(cep)/json/"
         
@@ -31,7 +31,7 @@ class CepAPI: UIViewController {
             
             if let data = data {
                 do {
-                    let json = try JSONDecoder().decode(CepModel.self, from: data)
+                    let json = try JSONDecoder().decode(ZipCodeModel.self, from: data)
                     DispatchQueue.main.async {
                         completion(.success(json))
                     }

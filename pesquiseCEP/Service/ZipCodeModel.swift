@@ -1,6 +1,6 @@
 import Foundation
 
-struct CepModel: Codable {
+struct ZipCodeModel: Codable {
     let zipCode: String
     let streetOrAvenue: String
     let neighborhood: String

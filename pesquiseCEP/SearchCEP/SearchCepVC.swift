@@ -2,12 +2,12 @@ import UIKit
 
 class SearchCepVC: UIViewController {
 
-    var searchCepScreen: SearchCepScreen?
+    var searchZipCodeScreen: SearchCepScreen?
     
-    let cepData: CepModel
+    let zidCodeData: ZipCodeModel
     
-    init(cepData: CepModel) {
-        self.cepData = cepData
+    init(cepData: ZipCodeModel) {
+        self.zidCodeData = cepData
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -16,14 +16,14 @@ class SearchCepVC: UIViewController {
     }
     
     override func loadView() {
-        searchCepScreen = SearchCepScreen()
-        view = searchCepScreen
+        searchZipCodeScreen = SearchCepScreen()
+        view = searchZipCodeScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchCepScreen?.displayCep(cepData)
-        searchCepScreen?.delegate = self
+        searchZipCodeScreen?.displayCep(zidCodeData)
+        searchZipCodeScreen?.delegate = self
     }
 }
 

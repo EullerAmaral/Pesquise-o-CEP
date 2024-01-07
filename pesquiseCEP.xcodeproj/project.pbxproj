@@ -16,7 +16,7 @@
 		2A85DC0B2ABE1C770058F1BF /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC0A2ABE1C770058F1BF /* HomeScreen.swift */; };
 		2A85DC0E2ABE20120058F1BF /* SearchCepVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC0D2ABE20120058F1BF /* SearchCepVC.swift */; };
 		2A85DC102ABE220D0058F1BF /* SearchCepScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC0F2ABE220D0058F1BF /* SearchCepScreen.swift */; };
-		2A85DC132ABE23250058F1BF /* CepModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC122ABE23250058F1BF /* CepModel.swift */; };
+		2A85DC132ABE23250058F1BF /* ZipCodeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC122ABE23250058F1BF /* ZipCodeModel.swift */; };
 		2A85DC152ABE23720058F1BF /* CepAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A85DC142ABE23720058F1BF /* CepAPI.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,7 +32,7 @@
 		2A85DC0A2ABE1C770058F1BF /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		2A85DC0D2ABE20120058F1BF /* SearchCepVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCepVC.swift; sourceTree = "<group>"; };
 		2A85DC0F2ABE220D0058F1BF /* SearchCepScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCepScreen.swift; sourceTree = "<group>"; };
-		2A85DC122ABE23250058F1BF /* CepModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepModel.swift; sourceTree = "<group>"; };
+		2A85DC122ABE23250058F1BF /* ZipCodeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipCodeModel.swift; sourceTree = "<group>"; };
 		2A85DC142ABE23720058F1BF /* CepAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CepAPI.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,7 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				2A85DC142ABE23720058F1BF /* CepAPI.swift */,
-				2A85DC122ABE23250058F1BF /* CepModel.swift */,
+				2A85DC122ABE23250058F1BF /* ZipCodeModel.swift */,
 				2A40E3F82B419945001E86D5 /* CepError.swift */,
 			);
 			path = Service;
@@ -184,7 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2A85DC132ABE23250058F1BF /* CepModel.swift in Sources */,
+				2A85DC132ABE23250058F1BF /* ZipCodeModel.swift in Sources */,
 				2A85DC152ABE23720058F1BF /* CepAPI.swift in Sources */,
 				2A85DC0B2ABE1C770058F1BF /* HomeScreen.swift in Sources */,
 				2A85DC0E2ABE20120058F1BF /* SearchCepVC.swift in Sources */,
