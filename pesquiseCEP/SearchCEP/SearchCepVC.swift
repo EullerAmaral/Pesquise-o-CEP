@@ -4,6 +4,7 @@ class SearchCepVC: UIViewController {
 
     var searchZipCodeScreen: SearchCepScreen?
     
+    
     let zidCodeData: ZipCodeModel
     
     init(cepData: ZipCodeModel) {
