@@ -1,4 +1,4 @@
-## 📮 Pesquise o CEP
+### 📮 Pesquise o CEP
 
 - Aplicativo utilizando a API gratuita de CEP, buscando o endereço completo.
 - App em constante evolução.
